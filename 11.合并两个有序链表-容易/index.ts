@@ -45,12 +45,25 @@ var mergeTwoLists = function (l1: ListNode, l2: ListNode): ListNode {
 };
 
 const a = new ListNode(1), b = new ListNode(2), c = new ListNode(4)
-a.next = b 
+a.next = b
 b.next = c
 
 const z = new ListNode(4), y = new ListNode(3, z), x = new ListNode(1, y)
 
 
+var mergeTwoLists2 = function (l1: ListNode, l2: ListNode): ListNode {
+    if (!l1 || !l2) return l1 || l2
+
+    if (l1.val > l2.val) {
+        l2.next = mergeTwoLists2(l1, l2.next)
+        return l2
+
+    } else {
+        l1.next = mergeTwoLists2(l1.next, l2)
+        return l1
+    }
+}
 
 
-console.log(mergeTwoLists(a, x))
+
+console.log(mergeTwoLists2(a, x))

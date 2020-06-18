@@ -42,4 +42,16 @@ var a = new ListNode(1), b = new ListNode(2), c = new ListNode(4);
 a.next = b;
 b.next = c;
 var z = new ListNode(4), y = new ListNode(3, z), x = new ListNode(1, y);
-console.log(mergeTwoLists(a, x));
+var mergeTwoLists2 = function (l1, l2) {
+    if (!l1 || !l2)
+        return l1 || l2;
+    if (l1.val > l2.val) {
+        l2.next = mergeTwoLists2(l1, l2.next);
+        return l2;
+    }
+    else {
+        l1.next = mergeTwoLists2(l1.next, l2);
+        return l1;
+    }
+};
+console.log(mergeTwoLists2(a, x));
