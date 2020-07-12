@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+    //   "strictNullChecks": true,
+      "noEmitOnError": true,//源码未变已通过，则不生成结果
+      "lib":["esnext", "DOM"], //编译环境
+      "esModuleInterop": true
+    },
+    "include": ["./idea", "data_structure"]
+  }
