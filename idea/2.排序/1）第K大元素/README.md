@@ -10,3 +10,30 @@
 说明:
 
     你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。
+
+难易度： 中等
+
+解题思路
+
+第K大数的意思为
+
+    n 为数组的长度
+    数组中的第 1 大元素，即，从小到大排序后，下标为 n - 1 的元素
+    数组中的第 K 大元素，即，从小到大排序后，下标为 n - k 的元素
+
+1. 排序之后找n-k元素
+
+```ts
+var findKthLargest = function (nums: number[], k: number): number {
+    nums.sort((a, b) => b - a)
+    return nums[k - 1]
+};
+```
+
+
+2. 快速选择
+
+快速选择
+
+    我们希望位置 n - k 的左边是比它小的，右边是比它大的，那么 nums[n - k] 就是第 k 大的元素
+    我们把 n-k 看作 pivot ，用快速排序的手法去 partition “分区”
