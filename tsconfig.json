@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     //   "strictNullChecks": true,
     "noEmitOnError": true, //源码未变已通过，则不生成结果
